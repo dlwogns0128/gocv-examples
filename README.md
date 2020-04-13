@@ -12,11 +12,11 @@ Golang 으로 빌드된 OpenCV 모듈을 사용해보며 간단하게 영상처�
 
 ## Examples
 
-[[01]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/read-image-from-url) read image file from url link using 'net/http' and 'IMDecode'
+[[01]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/01_read-image-from-url) read image file from url link using 'net/http' and 'IMDecode'
 
-[[02]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/image-histogram) calculate image histogram and show using 'CalcHist' and 'Normalize'
+[[02]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/02_image-histogram) calculate image histogram and show using 'CalcHist' and 'Normalize'
 
-[[03]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/edge-detection) extract edge from image using 'Canny edge detector' and 'Hough transform'
+[[03]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/03_edge-detection) extract edge from image using 'Canny edge detector' and 'Hough transform'
 
-[[04]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/image-entropy) calculate image entropy
+[[04]](https://github.com/dlwogns0128/gocv-examples/tree/master/cmd/04_image-entropy) calculate image entropy
 
