@@ -8,7 +8,11 @@ import (
 	"gocv.io/x/gocv"
 )
 
-//직선 검출
+// HoughTransform extract edges using canny edge detector and find lines from image(gray-scale)
+//
+// Parameters:
+//     src - source image matrix
+//     Returns image matrix containing lines
 func HoughTransform(src gocv.Mat) gocv.Mat {
 	img := gocv.NewMat()
 	img = src.Clone()
@@ -19,12 +23,21 @@ func HoughTransform(src gocv.Mat) gocv.Mat {
 
 	edges := gocv.NewMat()
 	defer edges.Close()
-	gocv.Canny(gray, &edges, 300, 400)
+
+	var weakThreshold float32 = 300
+	var strongThreshold float32 = 400
+	gocv.Canny(gray, &edges, weakThreshold, strongThreshold)
 
 	lines := gocv.NewMat()
 	defer lines.Close()
+
+	var rho float32 = 1
+	var theta float32 = math.Pi / 180
+	var threshold int = 100
+	var minLineLength float32 = 100
+	var maxLineGap float32 = 5
 	if !edges.Empty() {
-		gocv.HoughLinesPWithParams(edges, &lines, 1, math.Pi/180, 100, 100, 5)
+		gocv.HoughLinesPWithParams(edges, &lines, rho, theta, threshold, minLineLength, maxLineGap)
 	}
 
 	if !lines.Empty() {

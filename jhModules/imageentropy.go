@@ -7,7 +7,12 @@ import (
 	"gocv.io/x/gocv"
 )
 
-//entropy 계산
+// CalcImageEntropy calculates image(gray-scale) entropy
+//
+// Parameters:
+//     src - source image matrix
+//     stride - window size which makes sub image from source
+//     Returns entropy value by float64
 func CalcImageEntropy(src gocv.Mat, stride int) float64 {
 
 	gray := gocv.NewMat()

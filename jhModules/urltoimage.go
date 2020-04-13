@@ -8,12 +8,18 @@ import (
 	"gocv.io/x/gocv"
 )
 
+// UrlToImage read url string and convert to image based on MAT which is basic type on OpenCV
+//
+// Parameters:
+//     url - image link
+//     Returns the image matrix
 func UrlToImage(url string) gocv.Mat {
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
+	//HTTP Error 403: Forbidden problem -> set header!
 	req.Header.Add("User-Agent", "Mozilla/5.0")
 
 	client := &http.Client{}
