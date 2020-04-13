@@ -1,7 +1,6 @@
 package jhModules
 
 import (
-	"image"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -30,17 +29,7 @@ func UrlToImage(url string) gocv.Mat {
 	}
 
 	img, err := gocv.IMDecode(bodyBytes, gocv.IMReadColor)
-	if !img.Empty() {
-		height := img.Size()[0]
-		width := img.Size()[1]
-		var interpolation gocv.InterpolationFlags
-		if height < 640 || width < 480 {
-			interpolation = gocv.InterpolationCubic
-		} else {
-			interpolation = gocv.InterpolationArea
-		}
-		gocv.Resize(img, &img, image.Point{640, 480}, 0, 0, interpolation) //640, 480
-	} else {
+	if img.Empty() {
 		log.Fatal(err)
 	}
 
